@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectoCuento.Views.Recomendaciones"
+             Title="Recomendaciones"
+             NavigationPage.HasNavigationBar="False"> <!--Ocultar barra de navegacion-->
+
+    <!-- Definicion del diseno de cuadricula con tres filas -->
+    <Grid RowDefinitions=".2*,.2*,.6*" BackgroundColor="#180101" >
+
+        <!-- Border que contiene la imagen principal -->
+        <Border Grid.RowSpan="2"
+                Background="#451B1B"
+                HeightRequest="333"
+                Stroke="#FD8383"
+                StrokeShape="RoundRectangle 0,00,30,30"
+                StrokeThickness="2"
+                WidthRequest="410">
+
+            <Grid RowDefinitions=".3*,.7*">
+
+                <!-- Imagen enlazada a la propiedad "Recomendacion_url" -->
+                <Image Grid.RowSpan="2"
+                       Aspect="AspectFill"
+                       Source="{Binding Recomendacion_url}"/>
+
+                <!-- Degradado de fondo -->
+                <RoundRectangle WidthRequest="440"
+                                HeightRequest="570"
+                                Opacity=".5">
+                    <RoundRectangle.Fill>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                            <GradientStop Offset="1" Color="#030005"></GradientStop>
+                        </LinearGradientBrush>
+                    </RoundRectangle.Fill>
+                </RoundRectangle>
+                
+
+            </Grid>
+            <Border.Shadow>
+
+                <!-- Definicion de sombra o iluminaciones -->
+                <Shadow
+                    Brush="#FD8383"
+                    Opacity=".9"
+                    Radius="100"
+                    Offset="0,0"/>                
+            </Border.Shadow>
+        </Border>
+
+        <!-- Border para el icono -->
+        <Grid RowDefinitions="*,*">
+            <Border Grid.Column="1"
+                    Margin="0,10,10,0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="50"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    WidthRequest="50"
+                    Stroke="Transparent">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10,10,10,10"/>
+                </Border.StrokeShape>
+
+                <!-- Iconos para agregar/quitar de favoritos -->
+                <Grid>
+                    <Label FontFamily="Icons"
+                       FontSize="25"
+                       HorizontalOptions="Center"
+                       Text="&#xE80E;"
+                       TextColor="White"
+                       VerticalOptions="Center"/>
+
+                    <Label x:Name="iconLabel"
+                       FontFamily="Icons"
+                       FontSize="25"
+                       HorizontalOptions="Center"
+                       Text="&#xE80D;"
+                       TextColor="Transparent"
+                       VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnIconTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+                
+            </Border>
+
+            <!-- Informacion de la grilla -->
+            <VerticalStackLayout Grid.Row="2" Margin="20,180,0,0">
+                <?infoGrilla?>
+                <Label Text="{Binding rtiempodelectura, StringFormat='Lectura de: {0} mins'}"
+                                   TextColor="White"/>
+                <Label FontSize="Large"
+                                   Text="{Binding rnombre}"
+                                   TextColor="White"/>
+
+            </VerticalStackLayout>
+        </Grid>
+
+        <!--Historia de los cuentos-->
+        <Grid Grid.Row="3">
+            <ScrollView VerticalScrollBarVisibility="Always">
+                <VerticalStackLayout Margin="20,20,10,0" >
+                    <Label FontSize="14" 
+                   Text="{Binding rhistoria}" 
+                   TextColor="White"
+                   LineHeight="1.6"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>

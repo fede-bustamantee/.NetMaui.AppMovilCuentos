@@ -1,0 +1,306 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectoCuento.Views.Inicio"
+             NavigationPage.HasNavigationBar="False"> <!--Ocultar barra de navegacion-->
+    
+    <!-- Definicion del diseno de la interfaz de usuario utilizando un Grid -->
+    <Grid BackgroundColor="#180101" RowDefinitions=".05*,.1*,.45*,.05*,.05*,.3*">
+
+        <!-- Titulo principal -->
+        <Label FontSize="16"
+               TranslationY="10"
+               HorizontalOptions="Center"
+               Text="Cuentos Maravillosos"
+               TextColor="White"
+               VerticalOptions="Center"/>
+
+        <!-- Barra de busqueda -->
+        <Grid Grid.Row="1" Margin="25,10,25,11">
+            <RoundRectangle CornerRadius="25" 
+                            Fill="#451B1B"
+                            HeightRequest="45"
+                            Stroke="white"
+                            StrokeThickness="2"/>
+            <SearchBar x:Name="searchBar"
+                       TextChanged="SearchBar_TextChanged"
+                       CancelButtonColor="White"
+                       Placeholder="Encuenta tu favorito"
+                       PlaceholderColor="#B97D9D"
+                       TextColor="White"
+                       VerticalOptions="Center"/>
+        </Grid>
+
+        <!-- Carrusel de cuentos -->
+        <CarouselView 
+            x:Name="CuentosCollectionView"
+            IndicatorView="indicatorView"
+            Grid.Row="2" PeekAreaInsets="35" TranslationY="-25">
+
+            <!-- Definicion del diseno o funcionamiento del carrusel -->
+            <CarouselView.ItemsLayout>
+
+                <LinearItemsLayout
+                    ItemSpacing="0"
+                    Orientation="Horizontal"
+                    SnapPointsAlignment="Center"
+                    SnapPointsType="MandatorySingle"/>
+
+            </CarouselView.ItemsLayout>
+
+            <!-- Plantilla de los elementos del carrusel -->
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions=".2*,.6*,.2*">
+                        <Border
+                        Grid.RowSpan="3"
+                        Background="#451B1B"
+                        HeightRequest="300"
+                        Stroke="White"
+                        StrokeShape="RoundRectangle 30,30,30,30"
+                        StrokeThickness="2"
+                        WidthRequest="300">
+
+                            <!--Imagen-->
+                            <Grid RowDefinitions=".2*,.6*,.2*" x:Name="iconLabel">
+                                <ImageButton Aspect="AspectFill" Source="{Binding imagen_url}"
+                                       Grid.RowSpan="3" Clicked="OnCounterClicked"/>
+                                <RoundRectangle
+                                    Grid.RowSpan="3"
+                                    CornerRadius="30"
+                                    WidthRequest="300"
+                                    Opacity=".7">
+
+                                    <!--Degradez-->
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                                            <GradientStop Offset="1" Color="#030005"></GradientStop>
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
+
+                                <VerticalStackLayout Grid.Row="2" Margin="20,0,0,0">
+
+                                    <!--informacion cuentos-->
+                                    <Label Text="{Binding tiempodelectura, StringFormat='Lectura de: {0} mins'}"
+                                   TextColor="White"/>
+                                    <Label FontSize="Large"
+                                   Text="{Binding nombre}"
+                                   TextColor="White"/>
+
+                                </VerticalStackLayout>
+
+                            </Grid>
+                            <Border.Shadow>
+
+                                <!--Iluminacion bordes-->
+                                <Shadow
+                                    Brush="#FD8383"
+                                    Opacity=".7"
+                                    Radius="50"
+                                    Offset="0,0"/>
+                            </Border.Shadow>
+                        </Border>
+
+                    </Grid>
+
+                </DataTemplate>
+
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <!-- Etiqueta para mostrar cuando no se encuentra ningun cuento -->
+        <Label x:Name="lblNoResults"
+               Grid.Row="2"
+               FontSize="16"
+               Text="No se enconto el Cuento"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               IsVisible="False"/>
+
+        <!-- Indicador del carrusel -->
+        <IndicatorView 
+            x:Name="indicatorView"
+            Grid.Row="3"
+            TranslationY="-52"
+            HorizontalOptions="Center"
+            IndicatorColor="#616161"
+            IndicatorSize="8"
+            SelectedIndicatorColor="#FD8383"
+            VerticalOptions="Center">
+        </IndicatorView>
+
+        <!-- Titulo de la seccion de recomendaciones -->
+        <Label Grid.Row="4"
+               TranslationY="-60"
+               Margin="25,10,25,10"
+               FontSize="16"
+               Text="Recomendaciones"
+               TextColor="White"
+               VerticalOptions="Center"/>
+
+        <!-- Plantilla de los elementos de la grilla -->
+        <CollectionView TranslationY="-70" Grid.Row="5" x:Name="RecomendacionesCollectionView">
+            
+            <!-- Definicion del diseno de la grilla -->
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+
+                <!-- Contenido de cada elemento de la grilla -->
+                <DataTemplate>
+                    <Grid HeightRequest="200" WidthRequest="200">
+                        <Border HeightRequest="200"
+                                HorizontalOptions="Center"
+                                Stroke="white"
+                                StrokeShape="RoundRectangle 20,20,20,20"
+                                StrokeThickness="3"
+                                WidthRequest="200">
+                            <ImageButton Clicked="OnRecomendacionClicked" Aspect="AspectFill" Source="{Binding Recomendacion_url}"/>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Menu de acciones -->
+        <Grid Grid.Row="5"
+              Margin="6,0,6,0"
+              HeightRequest="75"
+              VerticalOptions="End">
+            <Border BackgroundColor="#451B1B"
+                    Stroke="white"
+                    StrokeShape="RoundRectangle 30,30,30,30"
+                    StrokeThickness="2">
+
+                <!-- Contenido del menu -->
+                <Grid ColumnDefinitions="*,*,*,*,*" 
+                    RowDefinitions="*,*"
+                      RowSpacing="3">
+
+                    <!-- texto -->
+                    <Label Grid.Row="1"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           Text="Agregar"
+                           TextColor="#52BE80">
+                    </Label>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="1"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           Text="Editar"
+                           TextColor="#F1C40F">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEditarTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label Grid.Column="2"
+                           Grid.Row="1"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           Text="Eliminar"
+                           TextColor="#EC7063">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEliminarTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label Grid.Column="3"
+                           Grid.Row="1"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           Text="Perfil"
+                           TextColor="#3498DB">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRegistroTapped"/>
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+
+                    <Label Grid.Column="4"
+                           Grid.Row="1"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           Text="Favoritos"
+                           TextColor="#E59866">
+                        
+                    </Label>
+
+                    <!-- iconos -->
+                    <Label FontFamily="Icons"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           Text="&#xE800;"
+                           TextColor="#52BE80"
+                           VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnButtonTapped"/>
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                    <Label Grid.Column="1"
+                           FontFamily="Icons"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           Text="&#xE804;"
+                           TextColor="#F1C40F"
+                           VerticalOptions="End" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEditarTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label Grid.Column="2"
+                           FontFamily="Icons"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           Text="&#xE803;"
+                           TextColor="#EC7063"
+                           VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEliminarTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label Grid.Column="3"
+                           FontFamily="Icons"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           Text="&#xE802;"
+                           TextColor="#3498DB"
+                           VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRegistroTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label Grid.Column="4"
+                           FontFamily="Icons"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           Text="&#xE80D;"
+                           TextColor="#E59866"
+                           VerticalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnFavoritoTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </Grid>
+            </Border>
+        </Grid>
+        <?menu?>
+
+
+
+    </Grid>
+
+
+</ContentPage>

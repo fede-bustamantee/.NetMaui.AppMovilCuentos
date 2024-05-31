@@ -1,0 +1,103 @@
+is_global = true
+build_property.TargetFramework = net7.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = proyectoCuento
+build_property.ProjectDir = D:\Escritorio\AppCuentos\proyectoCuento\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[D:/Escritorio/AppCuentos/proyectoCuento/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/AgregarCuento.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.AgregarCuento.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AgregarCuento.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AgregarCuento.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/CrearCuenta.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.CrearCuenta.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CrearCuenta.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CrearCuenta.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/EditandoCuentos.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.EditandoCuentos.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EditandoCuentos.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EditandoCuentos.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/EditarCuentos.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.EditarCuentos.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EditarCuentos.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EditarCuentos.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/EliminarCuento.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.EliminarCuento.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EliminarCuento.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EliminarCuento.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/Favoritos.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.Favoritos.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Favoritos.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Favoritos.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/Historias.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.Historias.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Historias.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Historias.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/IniciarSecion.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.IniciarSecion.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\IniciarSecion.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\IniciarSecion.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/Inicio.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.Inicio.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Inicio.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Inicio.xaml
+
+[D:/Escritorio/AppCuentos/proyectoCuento/Views/Recomendaciones.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = proyectoCuento.Views.Recomendaciones.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Recomendaciones.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Recomendaciones.xaml

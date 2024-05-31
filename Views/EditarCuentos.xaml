@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             x:Class="proyectoCuento.Views.EditarCuentos"
+             Title="EditarCuentos"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions=".2* , .8*">
+        
+        <!-- Imagen de fondo con aspecto de relleno -->
+        <Image Aspect="AspectFill" Source="fondo.png"/>
+        <Grid BackgroundColor="#F1C40F" Opacity=".9"/>
+
+        <!-- Encabezado con logotipo y animacion de SkiaSharp -->
+        <Grid ColumnDefinitions="*,*">
+            <Image Aspect="AspectFit" 
+                   HeightRequest="80"
+                   Source="iconm.png"/>
+            <skia:SKLottieView Grid.Column="1"
+                               HeightRequest="130"
+                               RepeatCount="-1"
+                               Source="editar.json"/>
+        </Grid>
+
+        <!-- Seccion de titulo y descripcion -->
+        <Grid Grid.Row="1">
+            <RoundRectangle Margin="-5,-30,-5,-2"
+                            CornerRadius="30,30,0,0"
+                            Fill="#402800"/>
+            <VerticalStackLayout Margin="30,0,30,0">
+                <Label FontAttributes="Bold"
+                       FontSize="Medium"
+                       Text="Selecciona para Editar"
+                       TextColor="#EDEBF6"/>
+                <Label Text="Cuentos Disponibles"
+                       TextColor="#A3A3A4"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Seccion de lista de cuentos para editar -->
+        <Grid Grid.Row="1" Margin="0,60,0,0">
+            <ScrollView>
+                <VerticalStackLayout>
+                    <CollectionView x:Name="CuentosCollectionView">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"
+                                     Span="1"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                   Background="#451B1B"
+                                   HeightRequest="300"
+                                   Stroke="White"
+                                   StrokeShape="RoundRectangle 30,30,30,30"
+                                   StrokeThickness="4"
+                                   WidthRequest="350"
+                                   Margin="10">
+
+                                    <!-- Boton de imagen para editar el cuento -->
+                                    <StackLayout >
+                                        <ImageButton x:Name="EditarCuento" Clicked="EditarCuento_Clicked" 
+                                   Source="{Binding imagen_url}"
+                                   Aspect="AspectFill"/>
+                                    </StackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>

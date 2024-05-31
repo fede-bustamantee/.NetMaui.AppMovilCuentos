@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             x:Class="proyectoCuento.Views.CrearCuenta"
+             Title="CrearCuenta"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions=".3* , .7*">
+
+        <!-- Imagen de fondo con relleno -->
+        <Image Aspect="AspectFill" Source="fondo.png"/>
+        <Grid BackgroundColor="#3498DB" Opacity=".9"/>
+
+        <!-- Cuadricula para el logotipo y la animacion -->
+        <Grid ColumnDefinitions="*,*">
+            <Image Aspect="AspectFit" 
+                   HeightRequest="80"
+                   Source="iconm.png"/>
+            <skia:SKLottieView Grid.Column="1"
+                               HeightRequest="120"
+                               RepeatCount="-1"
+                               Source="favorito.json"/>
+        </Grid>
+
+        <!-- Panel para el Texto principal -->
+        <Grid Grid.Row="1">
+            <RoundRectangle Margin="-5,-30,-5,-2"
+                            CornerRadius="30,30,0,0"
+                            Fill="#17202A"/>
+            <VerticalStackLayout Margin="30,0,30,0">
+                <Label FontAttributes="Bold"
+                       FontSize="Medium"
+                       Text="Bienvenidos"
+                       TextColor="#EDEBF6"/>
+                <Label Text="Crear Cuenta"
+                       TextColor="#A3A3A4"/>
+
+                <!-- Campos de entrada para gmail,contrasena y confirmarla-->
+                <Grid Margin="0,30,0,0" ColumnDefinitions=".2*,.8*">
+                    <RoundRectangle Fill="#EDEBF6"
+                                CornerRadius="10"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="60"/>
+                    <Image HorizontalOptions="Center">
+                        <Image.Source>
+                            <FontImageSource FontFamily="Icons"
+                                             Glyph="&#xF0E0;"
+                                             Size="45"
+                                             Color="#3498DB"/>
+                        </Image.Source>
+                    </Image>
+
+                    <Entry Grid.Column="1"
+                           Placeholder="Email"
+                           VerticalOptions="Center"
+                           x:Name= "txtEmail"/>
+                </Grid>
+
+                <Grid Margin="0,30,0,0" ColumnDefinitions=".2*,.8*">
+                    <RoundRectangle Fill="#EDEBF6"
+                                CornerRadius="10"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="60"/>
+                    <Image HorizontalOptions="Center">
+                        <Image.Source>
+                            <FontImageSource FontFamily="Icons"
+                                             Glyph="&#xE809;"
+                                             Size="45"
+                                             Color="#3498DB"/>
+                        </Image.Source>
+                    </Image>
+                    <Entry Grid.Column="1"
+                           Placeholder="Contraseña"
+                           IsPassword="True"
+                           VerticalOptions="Center"
+                           x:Name= "txtPassword"/>
+                </Grid>
+
+                <Grid Margin="0,30,0,0" ColumnDefinitions=".2*,.8*">
+                    <RoundRectangle Fill="#EDEBF6"
+                                CornerRadius="10"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="60"/>
+                    <Image HorizontalOptions="Center">
+                        <Image.Source>
+                            <FontImageSource FontFamily="Icons"
+                                             Glyph="&#xE809;"
+                                             Size="45"
+                                             Color="#3498DB"/>
+                        </Image.Source>
+                    </Image>
+                    <Entry Grid.Column="1"
+                           Placeholder="Confirmar Contraseña"
+                           IsPassword="True"
+                           VerticalOptions="Center"
+                           x:Name= "txtVerificarPassword"/>
+                </Grid>
+
+                <!-- Boton crear cuenta-->
+                <Button Margin="0,20,0,0"
+                        BackgroundColor="#EDEBF6"
+                        HeightRequest="60"
+                        Text="Crear Cuenta"
+                        TextColor="#17202A"
+                        x:Name= "btnCrearCuenta"
+                        Clicked= "btnCrearCuenta_Clicked"/>
+
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+    
+</ContentPage>
